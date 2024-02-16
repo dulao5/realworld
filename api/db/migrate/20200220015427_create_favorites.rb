@@ -2,7 +2,7 @@
 
 class CreateFavorites < ActiveRecord::Migration[5.1]
   def change
-    create_table :favorites do |t|
+    create_table(:favorites, options: 'AUTO_ID_CACHE 1') do |t|
       t.belongs_to :article, null: false, foreign_key: true, index: false
       t.belongs_to :user, null: false, foreign_key: true, index: false
 

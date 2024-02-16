@@ -2,7 +2,7 @@
 
 class CreateComments < ActiveRecord::Migration[5.1]
   def change
-    create_table :comments do |t|
+    create_table(:comments, options: 'AUTO_ID_CACHE 1') do |t|
       t.belongs_to :author, null: false, foreign_key: { to_table: :users }
       t.belongs_to :article, null: false, foreign_key: true
       t.text :body, null: false

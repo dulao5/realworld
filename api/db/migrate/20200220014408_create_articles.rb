@@ -2,7 +2,7 @@
 
 class CreateArticles < ActiveRecord::Migration[5.1]
   def change
-    create_table :articles do |t|
+    create_table(:articles, options: 'AUTO_ID_CACHE 1') do |t|
       t.string :slug, null: false, index: { unique: true }
       t.string :title, null: false
       t.string :description, null: false

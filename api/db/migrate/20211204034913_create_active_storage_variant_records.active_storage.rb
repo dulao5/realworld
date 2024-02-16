@@ -2,7 +2,7 @@
 class CreateActiveStorageVariantRecords < ActiveRecord::Migration[5.1]
   def change
     unless table_exists?(:active_storage_variant_records)
-      create_table :active_storage_variant_records do |t|
+      create_table(:active_storage_variant_records, options: 'AUTO_ID_CACHE 1') do |t|
         t.belongs_to :blob, null: false, index: false
         t.string :variation_digest, null: false
 

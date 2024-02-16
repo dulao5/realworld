@@ -1,7 +1,7 @@
 # This migration comes from active_storage (originally 20170806125915)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.1]
   def change
-    create_table :active_storage_blobs do |t|
+    create_table(:active_storage_blobs, options: 'AUTO_ID_CACHE 1') do |t|
       t.string   :key,          null: false
       t.string   :filename,     null: false
       t.string   :content_type
@@ -14,7 +14,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.1]
       t.index [ :key ], unique: true
     end
 
-    create_table :active_storage_attachments do |t|
+    create_table(:active_storage_attachments, options: 'AUTO_ID_CACHE 1') do |t|
       t.string     :name,     null: false
       t.references :record,   null: false, polymorphic: true, index: false
       t.references :blob,     null: false
@@ -25,7 +25,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.1]
       t.foreign_key :active_storage_blobs, column: :blob_id
     end
 
-    create_table :active_storage_variant_records do |t|
+    create_table(:active_storage_variant_records, options: 'AUTO_ID_CACHE 1') do |t|
       t.belongs_to :blob, null: false, index: false
       t.string :variation_digest, null: false
 
